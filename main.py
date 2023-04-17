@@ -11,16 +11,11 @@ intents = discord.Intents().all()
 bot = commands.Bot(command_prefix="?", help_command = None, intents = intents)
 client = discord.Client(intents = intents)  
 
-# Initiate
-class MyClient():
-    def __init__(self, bot):
-        self.bot = bot
-
 # Startup Procedure
 @bot.event
 async def on_ready():
     await bot.change_presence(status = discord.Status.idle, activity = discord.Game('Nothing, Just Lurking'))
-    
+    await bot.load_extension("Cogs.radio")
     print (f'Logged on as {bot.user}!')
 
 # Sends Messages to Terminal

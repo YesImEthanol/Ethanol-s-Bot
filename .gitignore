@@ -128,3 +128,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 Ethanol-s-Bot.code-workspace
+
+/config.json
+*.json
+config.json
