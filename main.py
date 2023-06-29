@@ -16,26 +16,7 @@ client = discord.Client(intents = intents)
 async def on_ready():
     await bot.change_presence(status = discord.Status.idle, activity = discord.Game('Nothing, Just Lurking'))
     await bot.load_extension("Cogs.radio")
-    await bot.load_extension("Cogs.bible")
     print (f'Successfully Loaded All Cogs!')
-
-# User Gets "Member" role on Join
-@bot.event
-async def on_member_join(member):
-    role = discord.utils.get(member.guild.roles, id = 1096673662851100724)
-    await member.add_roles(role)
-    print(f'Successfully Added {role} Role to {member}')
-
-# Sends Messages to Terminal
-@bot.event
-async def on_message(message):
-    print (f'Message from {message.author}: {message.content}')
-    await bot.process_commands(message)
-
-# "Ping! Pong!" Command
-@bot.command()
-async def ping(ctx):
-     await ctx.reply('Pong!')
 
 # Config Loader
 def configLoader():
