@@ -1,8 +1,10 @@
 import os
 import discord
+import datetime
 
 from discord.ext import commands
 from discord import FFmpegPCMAudio
+from datetime import datetime
 
 class Radio(commands.Cog):
     
@@ -94,6 +96,25 @@ class Radio(commands.Cog):
         
         await voice.disconnect()
         self.voice_client = None
-    
+
+    @commands.command(aliases = ["Radio", "radio"])
+    async def RADIO(self, ctx):
+        embed = discord.Embed(title="Ethanol Bot Radio Commands",
+                      description="Radio Commands For Ethanol Bot and all of other bots by Ethanol\n\nDM Ethanol With Suggestions for Radio Stations",
+                      colour=0xaae43f,
+                      timestamp=datetime.now())
+
+        embed.add_field(name="Jazz",
+                value="Jazz Radio")
+        embed.add_field(name="LoFi",
+                value="LoFi Radio")
+        embed.add_field(name="Gator",
+                value="Gator Country 101.9")
+        embed.add_field(name="LBC",
+                value="LBC Radio (British Political Radio)")
+
+        embed.set_footer(text="DM Ethanol For Help")
+
+        await ctx.send(embed=embed)
 async def setup(bot):
     await bot.add_cog(Radio(bot))
